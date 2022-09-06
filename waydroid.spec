@@ -1,19 +1,21 @@
 Name:           waydroid
-Version:        1.2.1
+Version:        1.3.1
 Release:        1
 Summary:        Uses a container-based approach to boot a full Android system
-License:        GPL-3.0-or-later AND BSD-3-Clause
+License:        GPL-3.0-or-later
 URL:            https://github.com/waydroid/waydroid
 Source0:        https://github.com/waydroid/waydroid/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
-
-
+BuildRequires:  pkgconfig(libgbinder)
+BuildRequires:  pkgconfig(libglibutil)
+Requires:       nftables
+Requires:       dnsmasq
 Requires:       lxc
-Requires:       python3-gbinder
-Requires:       python3-gobjec
-Requires:       python3-pyclipper
-#commenting out to prevent explicit-lib-dependency error
-#Requires:       libgbinder1
-#Requires:       libglibutil1
+Requires:       python3dist(gbinder-python)
+Requires:       python-gobject3
+Requires:       python3dist(pyclipper)
+Requires:       %{_lib}glibutil
+Requires:       %{_lib}gbinder
+
 BuildArch:      noarch
 
 
@@ -33,16 +35,10 @@ The image is currently based on Android 10.
 %install
 %make_instal
 
-%pre
-%service_add_pre %{name}-container.service
-
 %post
-%service_add_post %{name}-container.service
+%_post_service waydroid-container
 
 %preun
-%service_del_preun %{name}-container.service
-
-%postun
-%service_del_postun %{name}-container.service
+%_preun_service waydroid-container
 
 %files
