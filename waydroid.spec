@@ -33,7 +33,7 @@ The image is currently based on Android 10.
 %build
 
 %install
-%make_install
+%make_install LIBDIR=%{_libdir}
 
 %post
 %_post_service waydroid-container
