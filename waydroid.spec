@@ -16,7 +16,7 @@ Requires:       python3dist(pyclipper)
 Requires:       %{_lib}glibutil
 Requires:       %{_lib}gbinder
 
-BuildArch:      noarch
+Recommends:     wl-clipboard
 
 
 %description
@@ -29,11 +29,11 @@ The image is currently based on Android 10.
 %prep
 %autosetup -p1
 
-
 %build
+# Nothing to build, just run make install
 
 %install
-%make_install LIBDIR=%{_libdir}
+%make_install
 
 %post
 %_post_service waydroid-container
@@ -42,3 +42,10 @@ The image is currently based on Android 10.
 %_preun_service waydroid-container
 
 %files
+%{_bindir}/waydroid
+# No idea if /usr/lib/ is correct path. Make file force it and it is used also by other distros like fedora, suse or mga. No one change to %{_libdir}
+%{_prefix}/lib/systemd/system/waydroid-container.service
+%{_prefix}/lib/waydroid/
+%{_datadir}/applications/Waydroid.desktop
+%{_datadir}/applications/waydroid.market.desktop
+%{_datadir}/metainfo/id.waydro.waydroid.metainfo.xml
