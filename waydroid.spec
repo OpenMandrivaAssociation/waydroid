@@ -1,3 +1,5 @@
+%define _empty_manifest_terminate_build 0
+
 Name:           waydroid
 Version:        1.3.1
 Release:        1
