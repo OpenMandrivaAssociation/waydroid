@@ -1,7 +1,7 @@
 %define _empty_manifest_terminate_build 0
 
 Name:           waydroid
-Version:        1.3.1
+Version:        1.3.3
 Release:        1
 Summary:        Uses a container-based approach to boot a full Android system
 License:        GPL-3.0-or-later
