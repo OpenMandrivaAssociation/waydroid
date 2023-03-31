@@ -2,7 +2,7 @@
 
 Name:           waydroid
 Version:        1.3.4
-Release:        1
+Release:        2
 Summary:        Uses a container-based approach to boot a full Android system
 License:        GPL-3.0-or-later
 URL:            https://github.com/waydroid/waydroid
