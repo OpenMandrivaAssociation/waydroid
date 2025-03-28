@@ -54,4 +54,11 @@ The image is currently based on Android 10.
 %{_prefix}/lib/waydroid/
 %{_datadir}/applications/Waydroid.desktop
 %{_datadir}/applications/waydroid.market.desktop
+%{_datadir}/applications/waydroid.app.install.desktop
+%{_datadir}/dbus-1/system-services/id.waydro.Container.service
+%{_datadir}/dbus-1/system.d/id.waydro.Container.conf
+%{_datadir}/esktop-directories/waydroid.directory
+%{_datadir}/icons/hicolor/512x512/apps/waydroid.png
+%{_datadir}/polkit-1/actions/id.waydro.Container.policy
 %{_datadir}/metainfo/id.waydro.waydroid.metainfo.xml
+%{_sysconfdir}/xdg/menus/applications-merged/waydroid.menu
