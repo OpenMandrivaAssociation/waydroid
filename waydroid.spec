@@ -1,24 +1,28 @@
 %define _empty_manifest_terminate_build 0
 
 Name:           waydroid
-Version:        1.3.4
-Release:        2
+Version:        1.5.1
+Release:        1
 Summary:        Uses a container-based approach to boot a full Android system
 License:        GPL-3.0-or-later
 URL:            https://github.com/waydroid/waydroid
-Source0:        https://github.com/waydroid/waydroid/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/waydroid/waydroid/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(libgbinder)
 BuildRequires:  pkgconfig(libglibutil)
-Requires:       nftables
-Requires:       dnsmasq
-Requires:       lxc
-Requires:       python3dist(gbinder-python)
-Requires:       python-gobject3
-Requires:       python3dist(pyclipper)
-Requires:       %{_lib}glibutil
-Requires:       %{_lib}gbinder
+BuildRequires:  spec-helper
+Requires: nftables
+Requires: dnsmasq
+Requires: lxc
+Requires: python3dist(gbinder-python)
+Requires: python3dist(dbus-python)
+Requires: python-gobject3
+Requires: python-gi
+Requires: python3dist(pyclipper)
+Requires: gtk+3.0
+Requires: %{_lib}glibutil
+Requires: %{_lib}gbinder
 
-Recommends:     wl-clipboard
+Recommends: wl-clipboard
 
 
 %description
@@ -38,10 +42,10 @@ The image is currently based on Android 10.
 %make_install
 
 %post
-%_post_service waydroid-container
+%_post_service waydroid-container.service
 
 %preun
-%_preun_service waydroid-container
+%_preun_service waydroid-container.service
 
 %files
 %{_bindir}/waydroid
