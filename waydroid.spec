@@ -1,23 +1,25 @@
-%define _empty_manifest_terminate_build 0
-
+# FIXME we need to build the images this downloads on
+# "waydroid init" from source for this to be properly
+# 100% free
 Name:           waydroid
 Version:        1.5.1
-Release:        1
+Release:        2
 Summary:        Uses a container-based approach to boot a full Android system
 License:        GPL-3.0-or-later
 URL:            https://github.com/waydroid/waydroid
 Source0:        https://github.com/waydroid/waydroid/archive/%{version}/%{name}-%{version}.tar.gz
+BuildArch:	noarch
 BuildRequires:  pkgconfig(libgbinder)
 BuildRequires:  pkgconfig(libglibutil)
 BuildRequires:  spec-helper
 Requires: nftables
 Requires: dnsmasq
 Requires: lxc
-Requires: python3dist(gbinder-python)
-Requires: python3dist(dbus-python)
+Requires: python%{pyver}dist(gbinder-python)
+Requires: python%{pyver}dist(dbus-python)
 Requires: python-gobject3
 Requires: python-gi
-Requires: python3dist(pyclipper)
+Requires: python%{pyver}dist(pyclipper)
 Requires: gtk+3.0
 Requires: %{_lib}glibutil
 Requires: %{_lib}gbinder
@@ -40,12 +42,6 @@ The image is currently based on Android 10.
 
 %install
 %make_install
-
-%post
-%_post_service waydroid-container.service
-
-%preun
-%_preun_service waydroid-container.service
 
 %files
 %{_bindir}/waydroid
