@@ -2,7 +2,7 @@
 # "waydroid init" from source for this to be properly
 # 100% free
 Name:           waydroid
-Version:        1.5.2
+Version:        1.5.4
 Release:        1
 Summary:        Uses a container-based approach to boot a full Android system
 License:        GPL-3.0-or-later
