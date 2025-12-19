@@ -9,6 +9,7 @@ License:        GPL-3.0-or-later
 URL:            https://github.com/waydroid/waydroid
 Source0:        https://github.com/waydroid/waydroid/archive/%{version}/%{name}-%{version}.tar.gz
 BuildArch:	noarch
+BuildRequires:  make
 BuildRequires:  pkgconfig(libgbinder)
 BuildRequires:  pkgconfig(libglibutil)
 BuildRequires:  spec-helper
